@@ -33,14 +33,8 @@ router.post('/verify', function(req, res, next) {
 
 // Generate test token
 router.post('/sign', function(req, res, next) {
-  var token = jwt.sign({ foo: 'bar' }, 'shhhhh');
-  // sign asynchronously with RSA SHA256
-  var claims = {
-    //exp: Math.floor(Date.now() / 1000) + (60 * 60),
-    exp: Math.floor(Date.now() / 1000) + 5,
-    id: 'test-user-id',
-    nickname: 'test-user'
-  }
+  var claims = req.body;
+  claims['exp'] = Math.floor(Date.now() / 1000) + 60;
   jwt.sign(claims, secret, function(err, token) {
     console.log(token);
     res.json({

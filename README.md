@@ -9,7 +9,7 @@ Request Format: JSON
 ```javascript
 {"token": "Client Access Token"}
 ```
-Response Format: JSON
+Response: User data in JSON
 ```javascript
 {"id": "user-id", "nickname": "Nickname", "avatarUrl", "Avatar URL"}
 ```
