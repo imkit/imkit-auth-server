@@ -34,7 +34,7 @@ router.post('/verify', function(req, res, next) {
 // Generate test token
 router.post('/sign', function(req, res, next) {
   var claims = req.body;
-  claims['exp'] = Math.floor(Date.now() / 1000) + 60;
+  claims['exp'] = Math.floor(Date.now() / 1000) + 60 * 60 * 24;
   jwt.sign(claims, secret, function(err, token) {
     console.log(token);
     res.json({
