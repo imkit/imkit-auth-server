@@ -3,8 +3,18 @@ var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var cors = require('cors')
 
 var app = express();
+
+// CORS
+app.use(cors({
+  origin: '*',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  credentials: false,
+  allowedHeaders: "Origin, X-Requested-With, Content-Type, Accept, CLIENT_KEY, Authorization, API_KEY",
+}));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
