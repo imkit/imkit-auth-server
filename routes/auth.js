@@ -7,6 +7,8 @@ var jwt = require('jsonwebtoken');
 var pjson = require('../package.json');
 
 var secret = pjson['jwt-secret'];
+process.env.JWT_SECRET && (secret = process.env.JWT_SECRET);
+
 /* GET configuration */
 router.get('/', function(req, res, next) {
   res.json({
