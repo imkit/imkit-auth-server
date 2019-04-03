@@ -1,8 +1,8 @@
-# Sample Micro Auth Service
+# IMKit Auth Service Architecture
 
 ![Architecture](Auth2.1.png)
 
-## Must implement API:
+## The IMKit Auth Compatible API MUST satisfy the API signature:
 ### Verify
 Method: POST
 Request Format: JSON
