@@ -28,7 +28,7 @@ curl -X "POST" "https://auth.fangho.com/verify" \
 {
   "id": "sss",
   "nickname": "Nola",
-  "avatarUrl": "https://globalassets.starbucks.com/assets/c1f4cd02de24483eb86c696401ad4213.jpg",
+  "avatarUrl": "https://globalassets.starbucks.com/assets/c1f4cd02de24483eb86c696401ad4213.jpg"
 }
 
 ```
