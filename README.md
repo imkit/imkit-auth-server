@@ -1,7 +1,9 @@
 # IMKit Auth Service Architecture
 
+## Type A
 ![Architecture 1](Auth2.1.png)
 
+## Type B
 ![Architecture 2](Auth%202.2.png)
 
 ## The IMKit Auth Compatible API MUST satisfy the API signature:
