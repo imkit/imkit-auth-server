@@ -1,6 +1,10 @@
 # IMKit Auth Service Architecture
 
-![Architecture](Auth2.1.png)
+## Type A
+![Architecture 1](Auth2.1.png)
+
+## Type B
+![Architecture 2](Auth%202.2.png)
 
 ## The IMKit Auth Compatible API MUST satisfy the API signature:
 ### Verify
@@ -26,9 +30,9 @@ curl -X "POST" "https://auth.fangho.com/verify" \
 
 ```javascript
 {
-  "id": "sss",
-  "nickname": "Nola",
-  "avatarUrl": "https://globalassets.starbucks.com/assets/c1f4cd02de24483eb86c696401ad4213.jpg"
+  "id": "sss", //Required
+  "nickname": "Nola",  //Optional, the nickname of the client will be overwritten
+  "avatarUrl": "https://globalassets.starbucks.com/assets/c1f4cd02de24483eb86c696401ad4213.jpg"//Optional, the avatarUrl of the client will be overwritten
 }
 
 ```
