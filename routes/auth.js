@@ -1,11 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var fs = require('fs');
-
 var jwt = require('jsonwebtoken');
-
 var pjson = require('../package.json');
-
 var secret = pjson['jwt-secret'];
 process.env.JWT_SECRET && (secret = process.env.JWT_SECRET);
 
