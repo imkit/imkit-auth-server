@@ -6,7 +6,7 @@ var secret = pjson['jwt-secret'];
 process.env.JWT_SECRET && (secret = process.env.JWT_SECRET);
 
 /* GET configuration */
-router.get('/', function(req, res, next) {
+router.get('/', function (req, res, next) {
   res.json({
     "version": pjson.version,
     "apis": {
@@ -15,10 +15,10 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.post('/verify', function(req, res, next) {
+router.post('/verify', function (req, res, next) {
   const token = req.body.token;
-  jwt.verify(token, secret, function(err, decoded) {
-    console.log('decoded=',decoded);
+  jwt.verify(token, secret, function (err, decoded) {
+    console.log('decoded=', decoded);
     if (err) {
       console.error(err);
       err.status = 401;
@@ -30,13 +30,15 @@ router.post('/verify', function(req, res, next) {
 });
 
 // Generate test token
-router.post('/sign', function(req, res, next) {
+router.post('/sign', function (req, res, next) {
   var claims = req.body;
   claims['exp'] = Math.floor(Date.now() / 1000) + 60 * 60 * 24 * 365; // 1 year
-  jwt.sign(claims, secret, function(err, token) {
+  let expirationDate = new Date(claims['exp'] * 1000);
+  jwt.sign(claims, secret, function (err, token) {
     console.log(token);
     res.json({
-      token: token
+      token,
+      expirationDate
     });
   });
 });
