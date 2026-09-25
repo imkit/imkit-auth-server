@@ -6,6 +6,25 @@
 ## Type B
 ![Architecture 2](Auth%202.2.png)
 
+## Running this service
+
+```bash
+docker run -e JWT_SECRET=<random secret, 32+ bytes> -p 3110:3110 ghcr.io/imkit/imkit-auth-server:master
+```
+
+- `JWT_SECRET` is required; the service exits at startup without it. Use a long random value and keep it in a secret store.
+- `POST /sign` issues an HS256 token for any posted claims (adds a one-year `exp`). **Anyone who can reach `/sign` can mint a token for any user, so never expose this service outside a private network.**
+- `POST /verify` accepts only HS256 tokens signed with `JWT_SECRET` and returns their claims, or 401.
+- Tokens and claims are never logged; the request log records method, path, status and timing only.
+- Tokens are compatible with the 1.x release (Node 8, jsonwebtoken 8): a token issued by either version verifies in the other when both use the same `JWT_SECRET`.
+
+## Development
+
+```bash
+npm ci
+npm test
+```
+
 ## The IMKit Auth Compatible API MUST satisfy the API signature:
 ### Verify
 Method: POST
